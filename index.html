@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>daniyal-portfolio</title>
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<script>
+  var nama = ("Ahmad Daniyal Fayyadh");
+  var hp = ("085232879429");
+  var alamat = ("Probolinggo");
+  var jk = ("laki-laki");
+  var umur = 21;
+  var ahli = ("Web Developer");
+  var email = ("daniyalfayyadh11@gmail.com");
+
+</script>
+
+<body>
+  <!-- header section starts -->
+  <header class="header">
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="#home" class="logo">Portfolio</a>
+
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+  <!-- header section ends -->
+
+  <!-- home section starts -->
+  <section class="home" id="home">
+    <div class="image">
+      <img src="images/daniel.jpeg" alt="" />
+    </div>
+
+    <div class="content">
+      <script>
+        document.write("<h3> hi, i am " + nama);
+      </script>
+      <span>web designer & developer</span>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, iure
+        accusamus explicabo cumque velit, nobis magni illo id possimus animi
+        quae reprehenderit rerum quasi! Nisi dolorum a tempore at
+        consequuntur.
+      </p>
+      <a href="#about" class="btn">about me</a>
+    </div>
+  </section>
+
+  <!-- home section ends -->
+
+  <!-- about section starts -->
+  <section class="about" id="about">
+    <h1 class="heading"><span>biography</span></h1>
+    <div class="biography">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
+        atque provident maiores temporibus, magni sed at ea dignissimos odio
+        magnam!
+      </p>
+
+      <div class="bio">
+        <script>
+          document.write("<h3> Nama : " + nama);
+          document.write("<h3> Phone : " + hp);
+          document.write("<h3> Alamat : " + alamat);
+          document.write("<h3> Jenis Kelamin : " + jk);
+          document.write("<h3> Umur : " + umur);
+          document.write("<h3> Keahlian : " + ahli);
+          document.write("<h3> Email : " + email);
+        </script>
+      </div>
+
+      <a href="#" class="btn">download CV</a>
+    </div>
+  </section>
+
+  <!-- about section ends -->
+
+  <div class="credit">
+    <p>&copy; copyright @ by ahmad-daniyal-fayyadh</p>
+  </div>
+
+  <!-- custom js file link -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
