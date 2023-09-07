@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Gaji Pegawai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        let nama = "Ridwan";
+        let jabatan = "Manager";
+        let status = "Menikah";
+        let gaji = "";
+
+        if (jabatan == "Manager") gaji = 15000000;
+        else if (jabatan == "Asisten Manager") gaji = 10000000;
+        else if (jabatan == "Staff") gaji = 5000000;
+        else gaji = 0;
+
+        let tun_jabatan = gaji * 0.15;
+        let bpjs = gaji * 0.10;
+        let tun_keluarga = "";
+
+        if (status == "Menikah") {
+            tun_keluarga = gaji * 0.20;
+        } else {
+            tun_keluarga = 0;
+        }
+
+        let tot_gaji = gaji + tun_jabatan + bpjs + tun_keluarga;
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1> Data Gaji Pegawai</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Pegawai</th>
+                    <th>Jabatan</th>
+                    <th>Status</th>
+                    <th>Gaji Pokok</th>
+                    <th>Tunjangan Jabatan</th>
+                    <th>BPJS</th>
+                    <th>Tunjangan Keluarga</th>
+                    <th>Total Gaji</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <script>document.write(nama)</script>
+                    </td>
+                    <td>
+                        <script>document.write(jabatan)</script>
+                    </td>
+                    <td>
+                        <script>document.write(status)</script>
+                    </td>
+                    <td>
+                        <script>document.write("Rp. " + gaji)</script>
+                    </td>
+                    <td>
+                        <script>document.write("Rp. " + tun_jabatan)</script>
+                    </td>
+                    <td>
+                        <script>document.write("Rp. " + bpjs)</script>
+                    </td>
+                    <td>
+                        <script>document.write("Rp. " + tun_keluarga)</script>
+                    </td>
+                    <td>
+                        <script>document.write("Rp. " + tot_gaji)</script>
+                    </td>
+                </tr>
+                <!-- Tambahkan baris lain sesuai kebutuhan -->
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
