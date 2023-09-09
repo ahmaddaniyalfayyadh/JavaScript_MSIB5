@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 3 JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1> Data Gaji Pegawai</h1>
+        <table>
+
+            <tr>
+                <th>No</th>
+                <th>Nama Pegawai</th>
+                <th>Jabatan</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>Tunjangan Kesehatan</th>
+                <th>Gaji Kotor</th>
+                <th>Agama</th>
+                <th>Zakat Profesi</th>
+                <th>Take Home Pay</th>
+            </tr>
+            <script>
+                var jabatan;
+                var gapok;
+                var agama;
+
+                for (var Pegawai = 1; Pegawai <= 10; Pegawai++) {
+
+                    if (Pegawai >= 1 && Pegawai <= 2) jabatan = "Manager";
+                    else if (Pegawai >= 3 && Pegawai <= 5) jabatan = "Asisten Manager";
+                    else if (Pegawai >= 6 && Pegawai <= 8) jabatan = "Supervisor";
+                    else if (Pegawai >= 9 && Pegawai <= 10) jabatan = "Staff";
+                    else jabatan = "";
+
+                    switch (jabatan) {
+                        case "Manager": gapok = 15000000; break;
+                        case "Asisten Manager": gapok = 10000000; break;
+                        case "Supervisor": gapok = 7000000; break;
+                        case "Staff": gapok = 4000000; break;
+                        default: gapok = ""; break;
+                    }
+
+                    var tunjab = gapok * 0.20;
+                    var tunkes = gapok * 0.10;
+                    var gaji_kotor = gapok + tunjab + tunkes;
+
+                    agama = (Pegawai % 2 === 0) ? "Non Muslim" : "Muslim";
+                    var warna = (Pegawai % 2 === 0) ? 'blue' : 'yellow';
+                    var zakat = 0;
+                    if (agama === "Muslim" && gaji_kotor >= 7000000) {
+                        zakat = gaji_kotor * 0.025;
+                    }
+
+                    take_home_pay = gaji_kotor - zakat;
+
+
+                    document.write(`<tr bgcolor="${warna}">`);
+                    document.write("<td>" + Pegawai + "</td>");
+                    document.write("<td>Pegawai" + Pegawai + "</td>");
+                    document.write("<td>" + jabatan + "</td>");
+                    document.write("<td> Rp. " + gapok + "</td>");
+                    document.write("<td>Rp. " + tunjab + "</td>");
+                    document.write("<td>Rp. " + tunkes + "</td>");
+                    document.write("<td>Rp. " + gaji_kotor + "</td>");
+                    document.write("<td>" + agama + "</td>");
+                    document.write("<td>Rp. " + zakat + "</td>");
+                    document.write("<td>Rp. " + take_home_pay + "</td>");
+                    document.write("</tr>")
+                }
+            </script>
+        </table>
+    </div>
+</body>
+
+</html>
