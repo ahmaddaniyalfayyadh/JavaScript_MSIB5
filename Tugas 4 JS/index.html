@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pembelian Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Form Pembelian Barang</h1>
+        <form id="frm">
+            Nama : <input type="text" name="nama" placeholder="Masukkan nama anda"><br>
+            Barang :
+            <select name="option" id="">
+                <option value="TV">TV</option>
+                <option value="AC">AC</option>
+                <option value="Kulkas">Kulkas</option>
+            </select><br>
+            Jumlah : <input type="number" name="jumlah" placeholder="Masukkan jumlah barang anda"><br>
+            <input type="button" name="proses" value="Beli" onclick="data()">
+        </form>
+        <h2 id="hasil"></h2>
+    </div>
+
+    <script>
+        function data() {
+            let identitas = document.getElementById('frm').nama.value;
+            let produk = document.getElementById('frm').option.value;
+            let jumlh = document.getElementById('frm').jumlah.value;
+            let harga;
+
+            switch (produk) {
+                case "TV": harga = 2000000; break;
+                case "AC": harga = 3000000; break;
+                case "Kulkas": harga = 4000000; break;
+                default: harga = ""; break;
+            }
+            let harga_kotor = harga * jumlh;
+
+            let diskon = 0;
+            if (produk === "Kulkas" && jumlh >= 3) {
+                diskon = harga_kotor * 0.30;
+            } else if (produk === "AC" && jumlh >= 3) {
+                diskon = harga_kotor * 0.20;
+            } else {
+                diskon = harga_kotor * 0.10;
+            }
+
+            let tagihan = harga_kotor - diskon;
+            let ppn = tagihan * 0.10;
+            let harga_bayar = tagihan + ppn;
+
+            let hasil = "";
+            if (identitas && produk != '') {
+                hasil = `<h2>Terima kasih, ${identitas}!</h2>
+                    <p>Anda telah membeli:</p>
+                    <p>Produk: ${produk}</p>
+                    <p>Harga Satuan: Rp. ${harga}</p>
+                    <p>Jumlah Barang: ${jumlh}</p>
+                    <p>Tagihan Sebesar: Rp. ${harga_kotor}</p>
+                    <p>Diskon: Rp. ${diskon}</p>
+                    <p>PPN (10%): Rp. ${ppn}</p>
+                    <p>Total Harga Bayar: Rp. ${harga_bayar}</p>`;
+            } else {
+                hasil = '<h2>Maaf, nama atau barang belum diisi dengan benar.</h2>';
+            }
+
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+    </script>
+</body>
+
+</html>
