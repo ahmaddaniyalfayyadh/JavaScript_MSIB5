@@ -14,7 +14,7 @@
 
 <body>
     <div class="container" style="margin-top: 2rem;">
-        <div id="gempa-container"></div>
+        <div id="output"></div>
     </div>
 
 
@@ -34,16 +34,16 @@
             }
         }
 
-        function tampilkanInformasiGempa(gempa) {
-            const gempaContainer = document.getElementById('gempa-container');
-            const gempaInfo = document.createElement('div');
+        function tampil(gempa) {
+            let output = document.getElementById('output');
+            let gempaInfo = document.createElement('div');
             gempaInfo.innerHTML = `
                 <h2>Lokasi gempa: ${gempa.lokasi}</h2>
                 <p>Skala: ${gempa.skala}</p>
                 <p>Dampak: ${gempa.dampak()}</p>
                 <hr>
             `;
-            gempaContainer.appendChild(gempaInfo);
+            output.appendChild(gempaInfo);
         }
 
         let n1 = new Gempa('Meksiko', 1);
@@ -52,11 +52,11 @@
         let n4 = new Gempa('Australia', 6);
         let n5 = new Gempa('Jerman', 10);
 
-        tampilkanInformasiGempa(n1);
-        tampilkanInformasiGempa(n2);
-        tampilkanInformasiGempa(n3);
-        tampilkanInformasiGempa(n4);
-        tampilkanInformasiGempa(n5);
+        tampil(n1);
+        tampil(n2);
+        tampil(n3);
+        tampil(n4);
+        tampil(n5);
     </script>
 </body>
 
